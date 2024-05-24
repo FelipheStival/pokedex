@@ -1,0 +1,14 @@
+ion-content {
+   
+    .list {
+        display: flex;
+        flex-wrap: wrap; /* Permite a quebra de linha */
+        
+        app-pokemon-card {
+            flex: 1 0 50%;
+            box-sizing: border-box;
+            padding: 10px;
+            max-width: 50%;
+        }
+    }
+}

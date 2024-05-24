@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/services/http/http.service';
 import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-pokemons',
@@ -9,11 +9,12 @@ import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
 })
 export class PokemonsPage implements OnInit {
 
-  public pokemons : any ;
-  public currentPage: number = 1;
+  public pokemons : any = [];
+  public offset: number = 1;
 
   constructor(
-    private pokemonService: PokemonService
+    private pokemonService: PokemonService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit() {
@@ -23,7 +24,30 @@ export class PokemonsPage implements OnInit {
   /**
    * Método para carregar os dados iniciais do aplicativo
    */
-  public load() {
+  public load(event: any = null) {
+
+    this.pokemonService.get(6, this.offset).subscribe({
+      next: (data: any) => {
+
+        // Quando for evento do infinite scroll apenas será adicionado ao array
+        if(this.pokemons) {
+          this.pokemons.push(...data.results)
+        } else {
+          this.pokemons = data.results;
+        }
+
+      },
+      error: (err) => {
+        this.toastService.show('Não foi possível obter os pokemons');
+      }
+
+    });
+    
+    if(event) {
+      event.target.complete();
+    }
+    
+    this.offset += 6;
 
   }
 

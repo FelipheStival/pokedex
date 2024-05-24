@@ -1,0 +1,25 @@
+.loader {
+
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 50%;
+        height: 50%;
+        object-fit: contain;
+        animation: rotate 2s infinite;
+        
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+  
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -21,4 +21,16 @@ export class PokemonService {
     return this.httpService.get(url);
 
   }
+
+  /**
+   * Método para obter os dados de um pokemon pelo ID
+   * @param id id do pokemon
+   */
+  public getByName(name: string) {
+
+    let url = `pokemon/${name}`;
+    return this.httpService.get(url);
+    
+  }
+
 }

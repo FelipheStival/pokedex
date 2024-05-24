@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/services/http/http.service';
+import { StorageService } from 'src/app/services/storage/storage.service';
 
 @Component({
   selector: 'app-favorites',
@@ -8,11 +8,22 @@ import { HttpService } from 'src/app/services/http/http.service';
 })
 export class FavoritesPage implements OnInit {
 
-  constructor(
-    private httpService: HttpService
-  ) { }
+  public pokemons: any = [];
 
-  ngOnInit() {
+  constructor(
+    private storageService: StorageService
+  ) {}
+
+  async ngOnInit() {
+    await this.load();
+  }
+
+  async ionViewWillEnter() {
+    await this.load();
+  }
+
+  public async load() {
+    this.pokemons = await this.storageService.get('favorites_pokemons');
   }
 
 }

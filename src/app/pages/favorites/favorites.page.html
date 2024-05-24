@@ -1,13 +1,21 @@
-<ion-header [translucent]="true">
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>favorites</ion-title>
+    
+    <ion-title>
+      <ion-icon name="paw"></ion-icon>
+      Pokemons
+    </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">favorites</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="list" *ngIf="pokemons.length">
+    <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (eventFavorited)="load()"></app-pokemon-card>
+  </div>
+
+  <app-pokemon-card-empty *ngIf="!pokemons.length"></app-pokemon-card-empty>
+
 </ion-content>
