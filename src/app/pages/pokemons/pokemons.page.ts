@@ -42,7 +42,7 @@ export class PokemonsPage implements OnInit {
       }
 
     });
-    
+      
     if(event) {
       event.target.complete();
     }

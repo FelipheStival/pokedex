@@ -24,7 +24,15 @@ export class PokemonCardComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.load();
+
+    this.pokemonService.onFavoritedPokemon.subscribe({
+      next: async (data: any) => {
+        await this.isFavorited();
+      }
+    })
+
   }
 
   /**
@@ -54,11 +62,12 @@ export class PokemonCardComponent  implements OnInit {
    */
   private async isFavorited() {
 
-    let favoritesPokemon: any = await this.storageService.get('favorites_pokemons');
-    let check = favoritesPokemon.find((data: any) => {
+    let favoritesPokemons = await this.storageService.get('favorites_pokemons');
+
+    let check = favoritesPokemons.find((data: any) => {
       return data.name == this.pokemon.name;
     });
-
+    
     this.isFavorite = check ? true : false;
     
   }
@@ -106,7 +115,9 @@ export class PokemonCardComponent  implements OnInit {
     }
 
     await this.storageService.set('favorites_pokemons', favoritesPokemon);
-    this.eventFavorited.emit ({ favorited: true });
+
+    this.eventFavorited.emit ({ pokemon: pokemon });
+    this.pokemonService.onFavoritedPokemon.emit({ pokemon: pokemon });
     
   }
 
