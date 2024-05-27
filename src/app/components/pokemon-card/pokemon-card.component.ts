@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output, input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OutputEmitterRef, input, output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { catchError } from 'rxjs';
+import { PokemonDetailsPage } from 'src/app/pages/pokemon-details/pokemon-details.page';
 import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
@@ -12,6 +15,7 @@ export class PokemonCardComponent  implements OnInit {
 
   @Input('pokemon') pokemon: any;
   @Output('eventFavorited') eventFavorited = new EventEmitter();
+  @Output('onError') onError = new EventEmitter();
 
   public pokemonData: any;
   public loading: boolean =  true;
@@ -20,7 +24,8 @@ export class PokemonCardComponent  implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private storageService: StorageService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -51,8 +56,9 @@ export class PokemonCardComponent  implements OnInit {
         
       },
       error: (err) => {
-
+        this.onError.emit({ error: err });
       }
+      
     });
 
   }
@@ -63,10 +69,15 @@ export class PokemonCardComponent  implements OnInit {
   private async isFavorited() {
 
     let favoritesPokemons = await this.storageService.get('favorites_pokemons');
+    let check: any;
 
-    let check = favoritesPokemons.find((data: any) => {
-      return data.name == this.pokemon.name;
-    });
+    if(favoritesPokemons) {
+
+      check = favoritesPokemons.find((data: any) => {
+        return data.name == this.pokemon.name;
+      });
+
+    }
     
     this.isFavorite = check ? true : false;
     
@@ -118,6 +129,21 @@ export class PokemonCardComponent  implements OnInit {
 
     this.eventFavorited.emit ({ pokemon: pokemon });
     this.pokemonService.onFavoritedPokemon.emit({ pokemon: pokemon });
+    
+  }
+
+   /**
+   * Método para abrir o modal para visualização dos dados do pokemon
+   * @param pokemon dados do pokemon escolhido
+   */
+  public async openModal(pokemon: any) {
+
+    const modal = await this.modalCtrl.create({
+      component: PokemonDetailsPage,
+      componentProps: { pokemon }
+    });
+
+    modal.present();
     
   }
 

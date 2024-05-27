@@ -12,11 +12,34 @@ ion-header {
         border-bottom-right-radius: 10px;
         text-align: center;
 
+        display: flex;
+        align-items: center;
+
         ion-title {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+        }
+
+        &.toolbar-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ion-back-button {
+            position: absolute;
+        }
+    }
+
+    &.no-border {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        ion-toolbar {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
         }
     }
 

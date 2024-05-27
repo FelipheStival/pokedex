@@ -1,0 +1,15 @@
+.custom-loading {
+    
+    --width: 200px;
+
+    color: var(--ion-color-dark);
+
+    ion-spinner {
+        color: var(--ion-color-dark);
+    }
+
+    .loading-wrapper {
+        border-radius: 20px;
+    }
+
+}

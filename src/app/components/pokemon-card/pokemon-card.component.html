@@ -1,4 +1,4 @@
-<div class="pokemon-card">
+<div class="pokemon-card"  (click)="openModal(pokemonData)">
 
     <ng-container *ngIf="!loading">
 
@@ -15,14 +15,11 @@
 
         </div>
 
-        <div class="favorite-icon" (click)="favorite(pokemon)">
+        <div class="favorite-icon" (click)="favorite(pokemon); $event.stopImmediatePropagation()">
             <ion-icon name="heart-outline" *ngIf="!isFavorite"></ion-icon>
             <ion-icon name="heart" class="favorite" *ngIf="isFavorite"></ion-icon>
         </div> 
-
-
+        
     </ng-container>
-
-    <!-- <app-pokemon-card-loading *ngIf="loading"></app-pokemon-card-loading> -->
 
 </div>

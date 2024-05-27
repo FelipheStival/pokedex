@@ -1,0 +1,93 @@
+ion-content {
+
+    .image-pokemon {
+        width: 100%;
+        height: 400px;
+        background-color: var(--ion-color-dark);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .details {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            bottom: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            color: white;
+            gap: 10px;
+
+            ion-chip {
+                background-color: var(--ion-color-secondary);
+                font-weight: 600;
+                color: var(--ion-color-primary);
+                text-transform: capitalize;
+
+                ion-icon {
+                    color: var(--ion-color-primary);
+                }
+            }
+        }
+    }
+
+    .chart {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .list {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        font-weight: 600;
+
+        .item {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--ion-color-gray);
+            color: var(--ion-color-secondary);
+
+            .label {
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                color: var(--ion-color-tertiary);
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+}

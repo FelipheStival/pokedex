@@ -14,12 +14,14 @@ export class ToastService {
   /**
    * Método para apresentar o toast
    * @param message mensagem a ser apresentada
+   * @param positionToast posição do toast
+   * @param duration duração do toast
    */
-  public async show(message: string, positionToast: any = 'top') {
+  public async show(message: string, positionToast: any = 'bottom', durationToast = 500) {
 
     const toast = await this.toastController.create({
       message: message,
-      duration: 1500,
+      duration: durationToast,
       icon: 'chatbox',
       position: positionToast
     });

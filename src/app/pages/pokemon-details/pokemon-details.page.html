@@ -1,0 +1,71 @@
+<ion-header class="no-border">
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="close()"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-icon name="paw"></ion-icon>
+      {{ title }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div class="image-pokemon">
+
+    <img [src]="pokemon.sprites.other.dream_world.front_default" >
+
+    <div class="details">
+
+      <ion-chip>
+        <ion-icon name="ribbon"></ion-icon>
+        <ion-label>{{ pokemon.types[0].type.name }}</ion-label>
+      </ion-chip>
+
+      <ion-chip>
+        <ion-icon name="barbell-sharp"></ion-icon>
+        <ion-label>{{ pokemon.weight }} kg</ion-label>
+      </ion-chip>
+
+    </div>
+
+  </div>
+
+  <ion-segment value="chart" color="secondary" (ionChange)="changeSegment($event)">
+    <ion-segment-button value="chart" layout="icon-start">
+      <ion-label>Gráfico</ion-label>
+      <ion-icon name="bar-chart-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="info" layout="icon-start">
+      <ion-label>Tabela</ion-label>
+      <ion-icon name="reader-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="list" [class.hidden]=" segmentSelect == 'chart' ">
+    
+    <div class="item" *ngFor="let data of dataChart">
+      
+      <div class="label">
+        <ion-icon name="star-sharp"></ion-icon>
+        <span>{{ data.stat }}</span>
+      </div>
+
+      <div class="value">
+        {{ data.value }}
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="chart" [class.hidden]=" segmentSelect == 'info' ">
+    <canvas #canvas class="ion-padding">{{ chart }}</canvas>
+  </div>
+  
+
+</ion-content>

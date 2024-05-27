@@ -4,7 +4,7 @@
     
     <ion-title>
       <ion-icon name="paw"></ion-icon>
-      Pokemons
+      Lista de Pokemons
     </ion-title>
     
   </ion-toolbar>
@@ -12,8 +12,10 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
+  <ion-searchbar search-icon="../../../assets/icon/pokeball.svg" placeholder="Procurar por nome" (ionInput)="search($event)"></ion-searchbar>
+  
   <div class="list" *ngIf="pokemons.length">
-    <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></app-pokemon-card>
+    <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (onError)="clear($event)"></app-pokemon-card>
   </div>
 
   <app-pokemon-card-empty *ngIf="!pokemons.length"></app-pokemon-card-empty>
