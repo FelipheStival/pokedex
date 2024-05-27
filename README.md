@@ -1,4 +1,4 @@
-# Aplicativo Pokedex
+# Aplicativo Pokedex :iphone:
 
 Aplicativo Pokedex escrito em ionic, o aplicativo utiliza
 a API https://pokeapi.co/ para consultar as informações e faz a construção de uma interface para a interação com a mesma.
@@ -14,7 +14,7 @@ a API https://pokeapi.co/ para consultar as informações e faz a construção d
    6. [Tecnologias](#Tecnologias)
 <!--te-->
 
-# Estrutura das pastas
+# Estrutura das pastas :file_folder:
 
 O aplicativo foi dividido em 4 pastas sendo elas:
 
@@ -27,7 +27,7 @@ O aplicativo foi dividido em 4 pastas sendo elas:
 
 
 
-# Pré-requisitos
+# Pré-requisitos :bookmark_tabs:
 
 Antes de começar, você precisa ter instalado em sua máquina as seguintes ferramentas: <br>
 
@@ -62,3 +62,8 @@ ionic serve
 ```
 
 Se tudo ocorreu como esperado basta acessar o site a seguir para ter acesso a tela do aplicativo: http://localhost:8100/
+
+# Tecnologias
+<img src="{https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white}" />
+<img src="{https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white}" />
+
