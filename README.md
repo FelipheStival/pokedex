@@ -47,7 +47,7 @@ Após instalar o Node execute o comando abaixo para instalar o ionic.
 npm install -g @ionic/cli
 ```
 
-# Instalação
+# Instalação :wrench:
 
 Após instalar o Node e ionic, Execute o comando abaixo para instalar as dependências do projeto.
 
@@ -63,7 +63,7 @@ ionic serve
 
 Se tudo ocorreu como esperado basta acessar o site a seguir para ter acesso a tela do aplicativo: http://localhost:8100/
 
-# Capturas de tela
+# Capturas de tela :computer:
 
 Capturas de tela do aplicativo abaixo.
 
@@ -71,6 +71,5 @@ Capturas de tela do aplicativo abaixo.
 
 
 # Tecnologias
-<img src="{https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white}" />
-<img src="{https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white}" />
-
+![Alt text](https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white)
+![Alt text](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
