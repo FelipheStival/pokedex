@@ -49,7 +49,7 @@ npm install -g @ionic/cli
 
 # Instalação :wrench:
 
-Após instalar o Node e ionic, Execute o comando abaixo para instalar as dependências do projeto.
+Após instalar o Node e ionic, Execute o comando dentro da pasta do projeto para instalar as dependências do projeto.
 
 ```
 npm install
