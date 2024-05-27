@@ -10,7 +10,7 @@ a API https://pokeapi.co/ para consultar as informações e faz a construção d
    2. [Estrutura do projeto](#Estrutura-do-projeto)
    3. [Pré-requisitos](#Pré-requisitos)
    4. [Instalação](#Instalação)
-   5. [Como utilizar](#como-utilizar)
+   5. [Capturas de tela](#Capturas-de-tela)
    6. [Tecnologias](#Tecnologias)
 <!--te-->
 
@@ -62,6 +62,13 @@ ionic serve
 ```
 
 Se tudo ocorreu como esperado basta acessar o site a seguir para ter acesso a tela do aplicativo: http://localhost:8100/
+
+# Capturas de tela
+
+Capturas de tela do aplicativo abaixo.
+
+![Alt text](captura.gif)
+
 
 # Tecnologias
 <img src="{https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white}" />
